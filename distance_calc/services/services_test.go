@@ -2,8 +2,9 @@ package services
 
 import (
 	"bytes"
-	p "distance_calc/point"
+	p "distance_calc/proto"
 	"encoding/json"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
@@ -12,8 +13,8 @@ import (
 
 var distanceResponseBody *DistanceResponseBody
 
-var start = p.Point{55.8041983, 37.5831677}
-var end = p.Point{55.9663444, 37.4159007}
+var start = &p.Point{Lat: 55.8041983, Lng: 37.5831677}
+var end = &p.Point{Lat: 55.9663444, Lng: 37.4159007}
 
 func init() {
 	file, err := ioutil.ReadFile("./response.json")
@@ -39,8 +40,9 @@ func (c *ClientMock) Do(req *http.Request) (*http.Response, error) {
 }
 
 func TestDirectionsRequest(t *testing.T) {
-	mock := &http.Client{}
+	mock := &ClientMock{}
 	service := new(Directions)
+	fmt.Println(start)
 	err := service.Request(mock, start, end)
 	if err != nil {
 		t.Error(err)
