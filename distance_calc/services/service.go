@@ -1,7 +1,7 @@
 package services
 
 import (
-	p "distance_calc/point"
+	p "distance_calc/proto"
 	"net/http"
 )
 
@@ -9,7 +9,7 @@ type Service interface {
 	Distance() int64
 	Duration() int64
 	URL() string
-	Request(client HttpClient, origin p.Point, destination p.Point) error
+	Request(client HttpClient, origin *p.Point, destination *p.Point) error
 }
 
 type HttpClient interface {
