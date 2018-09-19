@@ -1,9 +1,9 @@
 package calc
 
 import (
-	p "distance_calc/proto"
-	s "distance_calc/services"
 	"github.com/stretchr/testify/assert"
+	p "proto"
+	s "services"
 	"testing"
 )
 

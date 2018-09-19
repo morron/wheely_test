@@ -4,12 +4,12 @@ import (
 	"log"
 	"net"
 
-	"distance_calc/calc"
-	p "distance_calc/proto"
-	"distance_calc/services"
+	"calc"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	p "proto"
+	"services"
 )
 
 const (

@@ -1,0 +1,18 @@
+version: "3.4"
+
+services:
+  direction:
+    build:
+      context: ./direction
+    env_file:
+      - .env
+  api:
+    build:
+      context: ./api
+    env_file:
+      - .env
+    ports:
+      - "2001:9393"
+    links:
+      - "direction:direction"
+

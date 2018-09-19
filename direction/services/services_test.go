@@ -2,12 +2,12 @@ package services
 
 import (
 	"bytes"
-	p "distance_calc/proto"
 	"encoding/json"
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
+	p "proto"
 	"testing"
 )
 

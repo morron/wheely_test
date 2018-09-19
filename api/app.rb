@@ -8,13 +8,8 @@ class App < Roda
   route do |r|
       rate = Rate.new(base: 250, perKm: 20, perMin: 20, min: 500)
 
-      r.get "search" do
-        result = ::ParamsSchema.call(r.params)
-        if result.success?
-          result.output #=> "Searched for barbaz"
-        else
-          result.messages
-        end
+      r.root do
+        "pong"
       end
 
       r.on 'calc' do
@@ -25,7 +20,7 @@ class App < Roda
           destination = ::Wheelysvc::Point.new(result.output['destination'])
 
           ride = ::Wheelysvc::Ride.new(origin: origin, destination: destination)
-          stub = ::Wheelysvc::DistanceCalcultaion::Stub.new('localhost:50051', :this_channel_is_insecure)
+          stub = ::Wheelysvc::DistanceCalcultaion::Stub.new(ENV.fetch('GRPC_SERVER', 'localhost:50051'), :this_channel_is_insecure)
 
           resp = stub.calculate(ride)
 

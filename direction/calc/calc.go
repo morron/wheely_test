@@ -1,9 +1,9 @@
 package calc
 
 import (
-	p "distance_calc/proto"
-	"distance_calc/services"
 	"net/http"
+	p "proto"
+	"services"
 )
 
 //var origin = Point{55.8041983, 37.5831677}

@@ -1,8 +1,8 @@
 package services
 
 import (
-	p "distance_calc/proto"
 	"net/http"
+	p "proto"
 )
 
 type Service interface {

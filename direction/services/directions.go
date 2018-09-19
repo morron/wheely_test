@@ -1,12 +1,12 @@
 package services
 
 import (
-	p "distance_calc/proto"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
+	p "proto"
 )
 
 type ResponseRow struct {
