@@ -43,6 +43,10 @@ func (d *Directions) Duration() int64 {
 	return d.Result.Routes[0].Legs[0].Duration.Value
 }
 
+func (d *Directions) Status() string {
+	return d.Result.Status
+}
+
 func (d *Directions) Request(client HttpClient, origin *p.Point, destination *p.Point) error {
 	request, err := http.NewRequest("GET", d.URL(), nil)
 	if err != nil {
@@ -76,6 +80,9 @@ func (d *Directions) Request(client HttpClient, origin *p.Point, destination *p.
 	}
 
 	err = json.Unmarshal(rawBody, &d.Result)
+	if err != nil {
+		return err
+	}
 
 	return nil
 

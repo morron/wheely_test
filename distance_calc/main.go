@@ -18,7 +18,7 @@ const (
 
 type server struct{}
 
-func (s *server) Calculate(ctx context.Context, in *p.Ride) (*p.Distance, error) {
+func (s *server) Calculate(ctx context.Context, in *p.Ride) (*p.DirectionResult, error) {
 	service := new(services.Directions)
 	response, _ := calc.Calc(service, in.Origin, in.Destination)
 	return response, nil

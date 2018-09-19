@@ -11,7 +11,7 @@ var start = &p.Point{Lat: 55.8041983, Lng: 37.5831677}
 var end = &p.Point{Lat: 55.9663444, Lng: 37.4159007}
 
 func TestCalc(t *testing.T) {
-	expect := &p.Distance{Distance: 25178, Duration: 1957}
+	expect := &p.DirectionResult{Distance: 25178, Duration: 1957}
 	service := new(s.Directions)
 
 	got, err := Calc(service, start, end)

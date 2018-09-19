@@ -1,0 +1,20 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+gem "roda"
+
+gem 'google-protobuf'
+gem "grpc", "~> 1.15"
+
+group :development do
+  gem 'shotgun'
+end
+
+group :test do
+  gem 'rspec'
+end
+
+gem "dry-validation", "~> 0.12.2"

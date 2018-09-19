@@ -3,7 +3,7 @@ syntax = "proto3";
 package wheelysvc;
 
 service DistanceCalcultaion {
-  rpc Calculate(Ride) returns (Distance);
+  rpc Calculate(Ride) returns (DirectionResult);
 }
 
 message Point {
@@ -16,7 +16,7 @@ message Ride {
   Point destination = 2;
 }
 
-message Distance {
+message DirectionResult {
   int64 distance = 1;
   int64 duration = 2;
 }
